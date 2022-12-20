@@ -6,7 +6,7 @@ useHead({
 
 <template>
   <div>
-    <h1 class="dark:text-primary">홈</h1>
+    <h1>홈</h1>
   </div>
 </template>
 

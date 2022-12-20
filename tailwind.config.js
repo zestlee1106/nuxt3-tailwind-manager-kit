@@ -1,11 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 const primary = colors.blue
+
 const secondary = colors.pink
 const info = colors.sky
 const warning = colors.amber
 const success = colors.emerald
 const error = colors.red
+console.log('🚀 ~ file: tailwind.config.js:10 ~ defaultTheme.screens', defaultTheme.screens)
 
 module.exports = {
   content: [
@@ -19,6 +21,11 @@ module.exports = {
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    screens: {
+      xs: '480px',
+      ...defaultTheme.screens,
+      '3xl': '1920px',
+    },
     extend: {
       colors: {
         primary,

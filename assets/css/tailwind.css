@@ -13,4 +13,13 @@ body {
     --color-icon-fill: #1d4ed8;
     --color-text-icon: #ffffff;
   }
+  :root[class='dark'] {
+    --color-primary: 247 147 34;
+    --color-text: 33 33 33;
+    --color-light: 245 245 245;
+    --color-success: 0 200 81;
+    --color-info: 51 181 229;
+    --color-warn: 255 187 51;
+    --color-error: 254 78 78;
+  }
 }

@@ -5,13 +5,14 @@ useHead({
 </script>
 
 <template>
-  <div class="w-full">
-    <AppHeader />
-
-    <div class="container mx-auto px-4 sm:px-0 py-4">
-      <NuxtPage />
+  <div class="w-full flex flex-row mx-auto">
+    <AppGnb />
+    <div class="w-full flex flex-col justify-start">
+      <AppHeader />
+      <main class="p-5">
+        <NuxtPage />
+      </main>
+      <AppFooter />
     </div>
-
-    <!-- <AppFooter /> -->
   </div>
 </template>
