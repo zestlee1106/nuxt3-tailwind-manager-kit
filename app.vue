@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import { useAppStore } from '~/store/app'
+const appStore = useAppStore()
+console.log('🚀 ~ file: app.vue:4 ~ appStore', appStore.isDark)
+
 onMounted(() => {
+  console.log('localStorage.theme', localStorage.theme)
   if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
-    document.documentElement.classList.add('dark')
+    appStore.changeTheme('dark')
   } else {
-    document.documentElement.classList.remove('dark')
+    appStore.changeTheme('light')
   }
 })
 </script>

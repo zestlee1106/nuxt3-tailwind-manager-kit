@@ -3,6 +3,15 @@ export default defineNuxtConfig({
   app: {
     head: {},
   },
+  modules: [
+    '@vueuse/nuxt',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore', ['defineStore', 'definePiniaStore']],
+      },
+    ],
+  ],
   css: ['~/assets/css/tailwind.css'],
   postcss: {
     plugins: {
