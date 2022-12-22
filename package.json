@@ -16,8 +16,15 @@
     "pnpm": "7.17.0"
   },
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev:dev": "cross-env APP_ENV=dev nuxt dev",
+    "dev:prod": "cross-env APP_ENV=prod nuxt dev",
+    "build": "nuxt build",
+    "build:dev": "cross-env APP_ENV=dev nuxt build",
+    "build:prod": "cross-env APP_ENV=prod nuxt build",
+    "start": "nuxt start",
+    "start:dev": "cross-env APP_ENV=dev nuxt start",
+    "start:prod": "cross-env APP_ENV=prod nuxt start",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -45,6 +52,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",
     "@vueuse/core": "^9.8.2",
-    "@vueuse/nuxt": "^9.8.2"
+    "@vueuse/nuxt": "^9.8.2",
+    "cross-env": "^7.0.3"
   }
 }
