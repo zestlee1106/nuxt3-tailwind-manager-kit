@@ -19,4 +19,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  hooks: {
+    close: () => {
+      // Nuxt lifecycle이 종료되는 시점
+      console.log('close')
+    },
+  },
 })
