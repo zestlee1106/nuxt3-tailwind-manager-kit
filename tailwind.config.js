@@ -7,7 +7,6 @@ const info = colors.sky
 const warning = colors.amber
 const success = colors.emerald
 const error = colors.red
-console.log('🚀 ~ file: tailwind.config.js:10 ~ defaultTheme.screens', defaultTheme.screens)
 
 module.exports = {
   content: [

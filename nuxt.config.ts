@@ -1,7 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import dotenv from 'dotenv'
+import path from 'path'
+
+dotenv.config({ path: path.resolve(__dirname, `.env.${process.env.APP_ENV || 'local'}`) })
+
 export default defineNuxtConfig({
   app: {
     head: {},
+  },
+  runtimeConfig: {
+    // The private keys which are only available server-side
+    apiSecret: process.env.API_SECRET_KEY,
+    // Keys within public are also exposed client-side
+    public: {
+      apiBaseURL: process.env.FND_API_BASE_URL,
+    },
+  },
+  alias: {
+    '@': '/<rootDir>',
+    assets: '/<rootDir>/assets',
   },
   modules: [
     '@vueuse/nuxt',
