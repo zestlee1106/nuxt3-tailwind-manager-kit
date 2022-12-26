@@ -1,12 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import dotenv from 'dotenv'
-import path from 'path'
+import path from 'node:path'
 
-dotenv.config({ path: path.resolve(__dirname, `.env.${process.env.DEPLOY_ENV || 'local'}`) })
+dotenv.config({
+  path: path.resolve(__dirname, `.env.${process.env.DEPLOY_ENV || 'local'}`),
+})
+
+const isProd = process.env.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
   app: {
     head: {},
+  },
+  nitro: {
+    preset: isProd ? 'node-cluster' : 'node-server',
   },
   runtimeConfig: {
     // The private keys which are only available server-side
