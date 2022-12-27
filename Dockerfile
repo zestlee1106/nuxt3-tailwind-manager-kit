@@ -1,4 +1,4 @@
-FROM node:18.12.1
+FROM node:18.12.1-alpine
 
 # Dockerfile 관리자
 LABEL maintainer="ltg2206@hanatour.com"
@@ -22,12 +22,12 @@ WORKDIR /${APP_NAME}
 # 현재 Dockerfile에 있는 경로의 모든 파일을 /app에 복사
 ADD . /${APP_NAME}
 
-# 앱 의존성 설치 및 앱 빌드
+# 패키지 설치
 RUN npm install -g pnpm \
- && pnpm install \
- && pnpm build:${PROFILE}
+ && pnpm install
+
+# 앱 빌드
+RUN pnpm build:${PROFILE}
 
 # app run
-ADD scripts/docker/run.sh run.sh
-RUN chmod +x run.sh
-CMD ["sh", "./run.sh"]
+CMD ["node", "./.output/server/index.mjs"]
