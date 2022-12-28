@@ -6,11 +6,9 @@ onMounted(() => {
   if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
+  )
     appStore.changeTheme('dark')
-  } else {
-    appStore.changeTheme('light')
-  }
+  else appStore.changeTheme('light')
 })
 </script>
 

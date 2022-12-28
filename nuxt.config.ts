@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import dotenv from 'dotenv'
 import path from 'node:path'
+import dotenv from 'dotenv'
+import eslintPlugin from 'vite-plugin-eslint'
 
 dotenv.config({
   path: path.resolve(__dirname, `.env.${process.env.DEPLOY_ENV || 'local'}`),
@@ -15,13 +16,15 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
   telemetry: false, // Nuxt 사용자 개선 로그 전송 비활성화
-  typescript: {
-    typeCheck: true, // 개발모드에서 타입 체크 활성화
-  },
 
   // Nitro 웹서버 설정
   nitro: {
     preset: isProd ? 'node-cluster' : 'node-server',
+  },
+
+  // vite
+  vite: {
+    plugins: [eslintPlugin()],
   },
 
   // 런타임 환경변수
@@ -42,7 +45,7 @@ export default defineNuxtConfig({
   // 경로 설정
   alias: {
     '@': '/<rootDir>',
-    assets: '/<rootDir>/assets',
+    'assets': '/<rootDir>/assets',
   },
 
   // 빌드 옵션

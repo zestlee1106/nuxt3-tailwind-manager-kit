@@ -11,14 +11,6 @@ const appStore = useAppStore()
       class="container mx-auto pl-4 pr-2 sm:px-0 flex flex-row items-center gap-4 justify-between"
     >
       <NuxtLink to="/" class="font-bold text-skin-muted text-lg"> 관리자 사이트 </NuxtLink>
-      <button
-        class="appearance-none px-2 py-2 rounded sm:hidden"
-        type="button"
-        aria-label="Menu"
-        @click="isOpen = !isOpen"
-      >
-        오픈 버튼
-      </button>
       <div class="text-black dark:text-white">
         <button type="button" @click="appStore.changeTheme(appStore.isDark ? 'light' : 'dark')">
           테마

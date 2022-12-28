@@ -1,3 +1,12 @@
+<script setup lang="ts">
+// import { Error } from './types/error'
+const props = defineProps<{
+  error: Object
+}>()
+
+const handleError = () => clearError({ redirect: '/' })
+</script>
+
 <template>
   <div class="relative font-sans" n="green6">
     <div class="container max-w-200 mx-auto py-10 px-4">
@@ -14,11 +23,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps({
-  error: Object,
-})
-
-const handleError = () => clearError({ redirect: '/' })
-</script>

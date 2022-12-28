@@ -1,4 +1,4 @@
-import { State, Theme } from '~/types/appStore'
+import type { State, Theme } from '~/types/appStore'
 
 export const useAppStore = defineStore({
   id: 'app-store',
@@ -8,18 +8,14 @@ export const useAppStore = defineStore({
     }
   },
   getters: {
-    isDark: (state) => state.theme === 'dark',
+    isDark: (state: State) => state.theme === 'dark',
   },
   actions: {
     changeTheme(theme: Theme) {
-      console.log('🚀 ~ file: app.ts:15 ~ changeTheme ~ theme', theme)
-
       this.theme = theme
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
+      if (theme === 'dark') document.documentElement.classList.add('dark')
+      else document.documentElement.classList.remove('dark')
+
       localStorage.setItem('theme', theme)
     },
   },
