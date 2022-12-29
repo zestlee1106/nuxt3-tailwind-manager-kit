@@ -1,3 +1,7 @@
 export default defineAppConfig({
-  foo: 'bar',
+  name: '관리자',
+  author: {
+    name: 'leetaegyu',
+    link: 'https://blog.yookidz.site',
+  },
 })

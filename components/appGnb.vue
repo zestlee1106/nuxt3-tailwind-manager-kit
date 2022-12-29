@@ -12,7 +12,7 @@ const menus = ref([
 </script>
 
 <template>
-  <div class="w-80 h-screen border-r p-5">
+  <div class="w-80 h-screen border-r border-r-skin-base p-5">
     <nav class="w-full flex flex-col items-start sm:gap-1">
       <NuxtLink
         v-for="menu in menus"
