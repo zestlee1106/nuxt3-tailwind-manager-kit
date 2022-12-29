@@ -10,7 +10,6 @@ useHead({
     <div class="w-full flex flex-col justify-start">
       <AppHeader />
       <main class="p-5">
-        <PageTitle />
         <NuxtPage />
       </main>
       <AppFooter />

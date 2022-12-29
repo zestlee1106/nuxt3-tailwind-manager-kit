@@ -1,7 +1,7 @@
+/** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 const primary = colors.blue
-
 const secondary = colors.pink
 const info = colors.sky
 const warning = colors.amber
@@ -43,6 +43,11 @@ module.exports = {
           icon: 'var(--color-text-icon)',
         },
       },
+      borderColor: {
+        skin: {
+          base: 'var(--color-border-base)',
+        },
+      },
       backgroundColor: {
         skin: {
           fill: 'var(--color-fill)',
@@ -52,7 +57,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', 'NanumGothic', ...defaultTheme.fontFamily.sans],
       },
     },
   },

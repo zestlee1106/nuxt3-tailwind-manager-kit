@@ -11,7 +11,30 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
   app: {
-    head: {},
+    head: {
+      meta: [
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1, user-scalable=0, viewport-fit=cover',
+        },
+      ],
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nanum+Gothic:wght@100;200;300;400;500;600;700;800;900&display=swap',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined',
+        },
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon/favicon-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
+        { rel: 'icon', href: '/favicon/favicon.ico' },
+      ],
+    },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
@@ -45,7 +68,7 @@ export default defineNuxtConfig({
   // 경로 설정
   alias: {
     '@': '/<rootDir>',
-    'assets': '/<rootDir>/assets',
+    assets: '/<rootDir>/assets',
   },
 
   // 빌드 옵션
@@ -65,7 +88,7 @@ export default defineNuxtConfig({
   ],
 
   // 전역 CSS
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', '~/assets/scss/app.scss'],
 
   // postcss 설정, tailwindcss 설정하면서 추가됨
   postcss: {

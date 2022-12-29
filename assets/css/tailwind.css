@@ -9,9 +9,14 @@ body {
 @layer base {
   :root {
     --color-text-base: #171717;
+    --color-text-active: #f8fafc;
+    --color-text-muted: #cbd5e1;
     --color-fill: #ffffff;
+    --color-fill-hover: #cbd5e1;
+    --color-fill-active: #334155;
     --color-icon-fill: #1d4ed8;
     --color-text-icon: #ffffff;
+    --color-border-base: '#cbd5e1';
   }
   :root[class='dark'] {
     --color-primary: 247 147 34;
@@ -21,5 +26,12 @@ body {
     --color-info: 51 181 229;
     --color-warn: 255 187 51;
     --color-error: 254 78 78;
+    --color-text-base: #ffffff;
+    --color-text-active: #171717;
+    --color-text-muted: #334155;
+    --color-fill: #cccccc;
+    --color-fill-hover: #475569;
+    --color-fill-active: #ffffff;
+    --color-border-base: '#475569';
   }
 }
