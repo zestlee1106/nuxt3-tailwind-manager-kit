@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useAppStore } from '~/store/app'
 const appStore = useAppStore()
+
+const oppositeTheme = computed(() => {
+  return appStore.isDark ? 'light' : 'dark'
+})
 </script>
 
 <template>
@@ -10,18 +14,10 @@ const appStore = useAppStore()
     <div
       class="container mx-auto pl-4 pr-2 sm:px-0 flex flex-row items-center gap-4 justify-between"
     >
-      <NuxtLink to="/" class="font-bold text-skin-muted text-lg"> 관리자 사이트 </NuxtLink>
-      <button
-        class="appearance-none px-2 py-2 rounded sm:hidden"
-        type="button"
-        aria-label="Menu"
-        @click="isOpen = !isOpen"
-      >
-        오픈 버튼
-      </button>
+      <NuxtLink to="/" class="font-bold text-skin-base text-lg"> 관리자 사이트 </NuxtLink>
       <div class="text-black dark:text-white">
-        <button type="button" @click="appStore.changeTheme(appStore.isDark ? 'light' : 'dark')">
-          테마
+        <button type="button" @click="appStore.changeTheme(oppositeTheme)">
+          <span class="material-symbols-outlined" v-text="`${oppositeTheme}_mode`" />
         </button>
       </div>
     </div>
@@ -30,10 +26,8 @@ const appStore = useAppStore()
 
 <style scoped>
 .navbar-default {
-  --color-text-base: #484848;
   --color-text-active: #ffffff;
   --color-text-hover: #ffffff;
-  --color-text-muted: #1d4ed8;
   --color-fill-hover: #1d4ed8;
   --color-fill-active: #1d4ed8;
   --color-fill-active-dark: #eeeeee;

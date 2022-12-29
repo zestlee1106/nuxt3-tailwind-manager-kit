@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   title: string
+  bar?: number
 }>()
 </script>
 

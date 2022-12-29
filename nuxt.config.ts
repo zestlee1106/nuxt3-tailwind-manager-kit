@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import dotenv from 'dotenv'
 import path from 'node:path'
+import dotenv from 'dotenv'
+import eslintPlugin from 'vite-plugin-eslint'
 
 dotenv.config({
   path: path.resolve(__dirname, `.env.${process.env.DEPLOY_ENV || 'local'}`),
@@ -10,18 +11,43 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineNuxtConfig({
   app: {
-    head: {},
+    head: {
+      meta: [
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1, user-scalable=0, viewport-fit=cover',
+        },
+      ],
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nanum+Gothic:wght@100;200;300;400;500;600;700;800;900&display=swap',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined',
+        },
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon/favicon-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
+        { rel: 'icon', href: '/favicon/favicon.ico' },
+      ],
+    },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
   telemetry: false, // Nuxt 사용자 개선 로그 전송 비활성화
-  typescript: {
-    typeCheck: true, // 개발모드에서 타입 체크 활성화
-  },
 
   // Nitro 웹서버 설정
   nitro: {
     preset: isProd ? 'node-cluster' : 'node-server',
+  },
+
+  // vite
+  vite: {
+    plugins: [eslintPlugin()],
   },
 
   // 런타임 환경변수
@@ -62,7 +88,7 @@ export default defineNuxtConfig({
   ],
 
   // 전역 CSS
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', '~/assets/scss/app.scss'],
 
   // postcss 설정, tailwindcss 설정하면서 추가됨
   postcss: {

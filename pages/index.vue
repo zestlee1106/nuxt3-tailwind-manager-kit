@@ -1,13 +1,14 @@
 <script setup lang="ts">
+const title = '홈'
 useHead({
-  title: '홈',
+  title,
 })
 </script>
 
 <template>
-  <div>
-    <h1>홈</h1>
-  </div>
+  <page-container :title="title">
+    <h2>여기는 {{ title }}입니다.</h2>
+  </page-container>
 </template>
 
 <style scoped></style>
